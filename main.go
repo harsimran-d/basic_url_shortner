@@ -34,6 +34,10 @@ func shortenUrl(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "destination URL cannot be empty"})
 		return
 	}
+	if destination == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "destination URL cannot be empty"})
+		return
+	}
 	key := ""
 	for {
 		key = getRandomKey()
